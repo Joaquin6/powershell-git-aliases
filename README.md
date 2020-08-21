@@ -1,7 +1,7 @@
 # PowerShell git aliases
 [![license](https://img.shields.io/github/license/Joaquin6/powershell-git-aliases)](./LICENSE)
-[![PowerShell Gallery](https://img.shields.io/powershellgallery/v/ps-git-aliases.svg?style=flat-square)](https://www.powershellgallery.com/packages/ps-git-aliases/)
-[![PowerShell Gallery](https://img.shields.io/powershellgallery/dt/ps-git-aliases.svg?style=flat-square)](https://www.powershellgallery.com/packages/ps-git-aliases/)
+[![PowerShell Gallery](https://img.shields.io/powershellgallery/v/PSGitAliases.svg?style=flat-square)](https://www.powershellgallery.com/packages/PSGitAliases/)
+[![PowerShell Gallery](https://img.shields.io/powershellgallery/dt/PSGitAliases.svg?style=flat-square)](https://www.powershellgallery.com/packages/PSGitAliases/)
 
 A PowerShell module that provides commonly used git aliases.
 
@@ -10,7 +10,7 @@ A PowerShell module that provides commonly used git aliases.
 Install from [PowerShell Gallery](https://www.powershellgallery.com/)
 
 ```powershell
-Install-Module ps-git-aliases -Scope CurrentUser -AllowClobber
+Install-Module PSGitAliases -Scope CurrentUser -AllowClobber
 ```
 
 ---
@@ -23,12 +23,12 @@ Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
 
 ## 🛂 Usage
 
-You have to import the module to use `ps-git-aliases`.
+You have to import the module to use `PSGitAliases`.
 
 Add below command into your PowerShell profile.
 
 ```powershell
-Import-Module ps-git-aliases -DisableNameChecking
+Import-Module PSGitAliases -DisableNameChecking
 ```
 
 Then restart your PowerShell.
