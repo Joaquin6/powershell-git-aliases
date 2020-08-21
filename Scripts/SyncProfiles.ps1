@@ -5,7 +5,7 @@
 	 Created by:	Joaquin6
 	 Organization:
 	 Filename:	SyncProfiles.ps1
-	 URL:		https://gist.github.com/Joaquin6/a44e10ebf7ee3391a924acf721f340f6
+	 URL:		https://gist.github.com/Joaquin6/a44e10ebf7ee3391a924acf721f340f6#file-syncprofiles-ps1
 	===========================================================================
 	.DESCRIPTION
 		Duplicates the powershell profile from Documents/PowerShell to Documents/WindowsPowerShell

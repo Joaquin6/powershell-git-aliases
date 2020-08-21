@@ -24,7 +24,7 @@ function Get-PSGit-CurrentBranch {
 #>
 function Get-PSGit-Aliases-Version {
 	$module = Get-Module -ListAvailable -Name PSGitAliases
-	$module.Version
+	Write-Output "`n PSGitAliases Version`n`t $($module.Version)"
 }
 
 # Don't add `Remove-Alias` on PowerShell >= 6.

@@ -1,9 +1,11 @@
 <#
 	.NOTES
 	===========================================================================
-	 Created on:   	8/20/2020
-	 Created by:   	Joaquin6
-	 Filename:     	Logger.ps1
+	 Created on:	8/20/2020
+	 Created by:	Joaquin6
+	 Organization:
+	 Filename:	Logger.ps1
+	 URL:		https://gist.github.com/Joaquin6/a44e10ebf7ee3391a924acf721f340f6#file-logger-ps1
 	===========================================================================
 	.DESCRIPTION
 		A description of the file.
