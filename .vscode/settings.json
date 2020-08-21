@@ -1,7 +1,16 @@
 {
 	"editor.formatOnSave": false,
 	"editor.tabSize": 4,
+	"files.defaultLanguage": "powershell",
+	"files.autoGuessEncoding": false,
+	"files.insertFinalNewline": true,
+	"files.trimTrailingWhitespace": true,
+	"powershell.codeFormatting.alignPropertyValuePairs": true,
 	"powershell.codeFormatting.preset": "Allman",
+	"powershell.scriptAnalysis.settingsPath": "./PSScriptAnalyzerSettings.psd1",
+	"powershell.scriptAnalysis.enable": true,
+	"powershell.sideBar.CommandExplorerVisibility": true,
+	"powershell.helpCompletion": "LineComment",
 	"[powershell]": {
 		"files.trimTrailingWhitespace": true
 	},
@@ -10,5 +19,15 @@
 		"**/bower_components": true,
 		"/PSCompatibilityCollector/profiles": true,
 		"/PSCompatibilityCollector/optional_profiles": true
-	}
+	},
+	"workbench.colorCustomizations": {
+		"titleBar.activeBackground": "#9e2a18",
+		"titleBar.inactiveBackground": "#9e2a1899",
+		"titleBar.activeForeground": "#e7e7e7",
+		"titleBar.inactiveForeground": "#e7e7e799",
+		"statusBar.background": "#9e2a18",
+		"statusBarItem.hoverBackground": "#ca361f",
+		"statusBar.foreground": "#e7e7e7"
+	},
+	"git.ignoreLimitWarning": true
 }
