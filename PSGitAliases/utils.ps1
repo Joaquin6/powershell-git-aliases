@@ -2,43 +2,36 @@
 .SYNOPSIS
 	Get current git branch.
 #>
-function Get-PSGit-CurrentBranch {
+function Get-Git-CurrentBranch
+{
 	git symbolic-ref --quiet HEAD *> $null
 
-	if ($LASTEXITCODE -eq 0) {
+	if ($LASTEXITCODE -eq 0)
+	{
 		return git rev-parse --abbrev-ref HEAD
 	}
- else {
+ 	else
+	{
 		return
 	}
-}
-
-<#
-.SYNOPSIS
-	Get PSGitAliases version' definition.
-.DESCRIPTION
-	Get Current version of PSGitAliases.
-.EXAMPLE
-	PS C:\> Get-PSGit-Aliases-Version
-	Get Current version of PSGitAliases.
-#>
-function Get-PSGit-Aliases-Version {
-	$module = Get-Module -ListAvailable -Name PSGitAliases
-	Write-Output "`n PSGitAliases Version`n`t $($module.Version)"
 }
 
 # Don't add `Remove-Alias` on PowerShell >= 6.
 # PowerShell >= 6 already has built-in `Remove-Alias`.
 # Let use built-in `Remove-Alias` on PowerShell >= 6.
-if ($PSVersionTable.PSVersion.Major -le 5) {
-	function Remove-Alias ([string] $AliasName) {
-		while (Test-Path Alias:$AliasName) {
+if ($PSVersionTable.PSVersion.Major -le 5)
+{
+	function Remove-Alias ([string] $AliasName)
+	{
+		while (Test-Path Alias:$AliasName)
+		{
 			Remove-Item Alias:$AliasName -Force 2> $null
 		}
 	}
 }
 
-function Format-AliasDefinition {
+function Format-AliasDefinition
+{
 	param (
 		[Parameter(Mandatory = $true)][string] $Definition
 	)
@@ -47,10 +40,12 @@ function Format-AliasDefinition {
 		$line = $_.TrimEnd()
 
 		# Trim 1 indent
-		if ($_ -match "^`t") {
+		if ($_ -match "^`t")
+		{
 			return $line.Substring(1)
 		}
-		elseif ($_ -match '^    ') {
+		elseif ($_ -match '^    ')
+		{
 			return $line.Substring(4)
 		}
 
@@ -67,13 +62,14 @@ function Format-AliasDefinition {
 .DESCRIPTION
 	Get definition of all git aliases or specific alias.
 .EXAMPLE
-	PS C:\> Get-PSGit-Aliases
+	PS C:\> Get-Git-Aliases
 	Get definition of all git aliases.
 .EXAMPLE
-	PS C:\> Get-PSGit-Aliases -Alias gst
+	PS C:\> Get-Git-Aliases -Alias gst
 	Get definition of `gst` alias.
 #>
-function Get-PSGit-Aliases ([string] $Alias) {
+function Get-Git-Aliases ([string] $Alias)
+{
 	$esc = [char] 27
 	$green = 32
 	$magenta = 35
@@ -81,21 +77,22 @@ function Get-PSGit-Aliases ([string] $Alias) {
 	$Alias = $Alias.Trim()
 	$blacklist = @(
 		'Get-Git-CurrentBranch',
-		'Get-PSGit-CurrentBranch',
 		'Remove-Alias',
 		'Format-AliasDefinition',
-		'Get-Git-Aliases',
-		'Get-PSGit-Aliases'
+		'Get-Git-Aliases'
 	)
 	$aliases = Get-Command -Module git-aliases | Where-Object { $_ -notin $blacklist }
 
-	if (-not ([string]::IsNullOrEmpty($Alias))) {
+	if (-not ([string]::IsNullOrEmpty($Alias)))
+	{
 		$foundAliases = $aliases | Where-Object -Property Name -Value $Alias -EQ
 
-		if ($foundAliases -is [array]) {
+		if ($foundAliases -is [array])
+		{
 			return Format-AliasDefinition($foundAliases[0].Definition)
 		}
-		else {
+		else
+		{
 			return Format-AliasDefinition($foundAliases.Definition)
 		}
 	}
