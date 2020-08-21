@@ -1,0 +1,14 @@
+{
+	"editor.formatOnSave": false,
+	"editor.tabSize": 4,
+	"powershell.codeFormatting.preset": "Allman",
+	"[powershell]": {
+		"files.trimTrailingWhitespace": true
+	},
+	"search.exclude": {
+		"**/node_modules": true,
+		"**/bower_components": true,
+		"/PSCompatibilityCollector/profiles": true,
+		"/PSCompatibilityCollector/optional_profiles": true
+	}
+}

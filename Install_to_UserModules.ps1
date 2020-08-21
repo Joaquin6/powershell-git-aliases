@@ -10,7 +10,11 @@
 		A description of the file.
 #>
 
+Import-Module -Force .\PSGitAliases
 
+$version = Get-PSGit-Aliases-Version
+Write-Host "PSGitAliases Version...."
+Write-Host $version
 
 if ($PSVersionTable.PSVersion.Major -lt 3) {
 	Write-Warning "PSGitAliases requires Powershell 3.0 or above"
@@ -35,7 +39,7 @@ $Global:ErrorActionPreference = 'Stop'
 $currentDir = Split-Path -parent $MyInvocation.MyCommand.Path
 $moduleDir = "$docDir\PowerShell\Modules\PSGitAliases"
 $profileFile = "$docDir\PowerShell\Microsoft.PowerShell_profile.ps1"
-$excludeCopy = @(".git", ".gitignore", ".editorconfig", ".vscode", "*.psproj", "*.psprojs", "*.psproj.*", "*.TempPoint.*", "README.md")
+$excludeCopy = @(".git", ".gitignore", ".editorconfig", ".vscode", "*.psproj", "*.psprojs", "*.psproj.*", "*.TempPoint.*", "README.md", "LICENSE", "*.bat", "Install_to_UserModules.ps1")
 
 if (!(Test-Path $moduleDir)) {
 	Write-Host "Creating directory '$moduleDir'..." -NoNewline

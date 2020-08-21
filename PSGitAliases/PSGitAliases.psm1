@@ -1,8 +1,9 @@
 . $PSScriptRoot\aliases.ps1
 
 $FunctionsToExport = @(
-	'Get-Git-CurrentBranch',
-	'Get-Git-Aliases',
+	'Get-PSGit-CurrentBranch',
+	'Get-PSGit-Aliases',
+	'Get-PSGit-Aliases-Version',
 	'g',
 	'ga',
 	'gaa',

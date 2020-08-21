@@ -2,14 +2,29 @@
 .SYNOPSIS
 	Get current git branch.
 #>
-function Get-Git-CurrentBranch {
+function Get-PSGit-CurrentBranch {
 	git symbolic-ref --quiet HEAD *> $null
 
 	if ($LASTEXITCODE -eq 0) {
 		return git rev-parse --abbrev-ref HEAD
-	} else {
+	}
+ else {
 		return
 	}
+}
+
+<#
+.SYNOPSIS
+	Get PSGitAliases version' definition.
+.DESCRIPTION
+	Get Current version of PSGitAliases.
+.EXAMPLE
+	PS C:\> Get-PSGit-Aliases-Version
+	Get Current version of PSGitAliases.
+#>
+function Get-PSGit-Aliases-Version {
+	$module = Get-Module -ListAvailable -Name PSGitAliases
+	$module.Version
 }
 
 # Don't add `Remove-Alias` on PowerShell >= 6.
@@ -52,13 +67,13 @@ function Format-AliasDefinition {
 .DESCRIPTION
 	Get definition of all git aliases or specific alias.
 .EXAMPLE
-	PS C:\> Get-Git-Aliases
+	PS C:\> Get-PSGit-Aliases
 	Get definition of all git aliases.
 .EXAMPLE
-	PS C:\> Get-Git-Aliases -Alias gst
+	PS C:\> Get-PSGit-Aliases -Alias gst
 	Get definition of `gst` alias.
 #>
-function Get-Git-Aliases ([string] $Alias) {
+function Get-PSGit-Aliases ([string] $Alias) {
 	$esc = [char] 27
 	$green = 32
 	$magenta = 35
@@ -66,9 +81,11 @@ function Get-Git-Aliases ([string] $Alias) {
 	$Alias = $Alias.Trim()
 	$blacklist = @(
 		'Get-Git-CurrentBranch',
+		'Get-PSGit-CurrentBranch',
 		'Remove-Alias',
 		'Format-AliasDefinition',
-		'Get-Git-Aliases'
+		'Get-Git-Aliases',
+		'Get-PSGit-Aliases'
 	)
 	$aliases = Get-Command -Module git-aliases | Where-Object { $_ -notin $blacklist }
 
