@@ -81,7 +81,7 @@ function Get-Git-Aliases ([string] $Alias)
 		'Format-AliasDefinition',
 		'Get-Git-Aliases'
 	)
-	$aliases = Get-Command -Module git-aliases | Where-Object { $_ -notin $blacklist }
+	$aliases = Get-Command -Module PSGitAliases | Where-Object { $_ -notin $blacklist }
 
 	if (-not ([string]::IsNullOrEmpty($Alias)))
 	{
